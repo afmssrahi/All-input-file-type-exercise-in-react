@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
 	return (
 		<>
-			<div id='header'>
+			<div id='header' className='position-fixed w-100'>
 				<nav className='navbar navbar-expand-lg navbar-dark bg-secondary'>
 					<div className='container'>
 						<h1 className='navbar-brand'>Task From Maksud Vaiya</h1>

@@ -1,6 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const MainCanvas = () => {
+	/**
+	 * store data in state named viewDetails
+	 */
+	const [viewDetails, setViewDetails] = useState([]);
+
+	/**===== get all data from MySql Database
+	 * ===== and set data into viewDetails array
+	 */
+	useEffect(() => {
+		axios.get('http://localhost:5000/').then((response) => {
+			console.log(response.data);
+			setViewDetails(response.data);
+		});
+	}, []);
+
+	console.log(viewDetails);
 	return (
 		<div>
 			<h1>Main Canvas</h1>

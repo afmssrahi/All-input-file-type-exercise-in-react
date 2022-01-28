@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 	return (
-		<aside className='text-light'>
+		<aside className='text-light position-fixed'>
 			<p>
 				<Link to='/fullForm'>Full Form</Link>
 			</p>

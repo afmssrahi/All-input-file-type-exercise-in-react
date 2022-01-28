@@ -3,3 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+main {
+  padding-top: 40px;
+}
+
+.w-28 {
+  width: 28%;
+}
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+} */
