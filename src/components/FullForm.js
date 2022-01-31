@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useFullFormDetailsContext } from '../contexts/fullFormDetailsContext';
 
 const FullForm = () => {
+	const { insertItem } = useFullFormDetailsContext();
 	/**
 	 * using react-hook-form for validation
 	 */
@@ -18,51 +20,37 @@ const FullForm = () => {
 		formData.append('file', data.file['0']);
 
 		const imgName = data.image['0'].name;
-		console.log(imgName);
 		const fileName = data.file['0'].name;
-		console.log(fileName);
 
-		console.log((data.file['0'].size / 1024 / 1024).toFixed(2) + ' MB');
-		console.log(data);
+		// console.log((data.file['0'].size / 1024 / 1024).toFixed(2) + ' MB');
 
 		/**===== insert data into MySql Database */
 
 		// for image and files insert into server folder
 		axios
-			.post('http://localhost:5000/uploads', formData, data)
+			.post('http://localhost:5000/uploads', formData)
 			.then((response) => {
-				// const newViewDetails = [...viewDetails, response.data];
-				// setViewDetails(newViewDetailresponses);
-				console.log(response.data);
+				// console.log(response.data);
 			});
 
 		// for data add into mysql
 		axios
 			.post('http://localhost:5000/', {
 				...data,
+				imgName,
+				fileName,
 				imgUrl: `http://localhost:5000/${imgName}`,
 				fileUrl: `http://localhost:5000/${fileName}`,
 			})
 			.then((response) => {
-				// const newViewDetails = [...viewDetails, response.data];
-				// setViewDetails(newViewDetails);
-				console.log(response.data);
+				// insert data in the UI
+				insertItem();
+				// console.log(response.data);
 			});
 	};
 	return (
 		<div>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				{/* Input type hidden
-				=================== */}
-				<input
-					className='form-control'
-					type='hidden'
-					value={0}
-					{...register('id', { required: true })}
-				/>
-				{errors.id && (
-					<p className='text-danger'>This field is must required</p>
-				)}
 				{/* Input type text
 				=================== */}
 				<label className='form-label'>Text:</label>
