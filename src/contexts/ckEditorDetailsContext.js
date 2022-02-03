@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { createContext, useContext, useEffect, useState } from 'react';
 
-export const fullFormDetailsContext = createContext({
+export const ckEditorDetailsContext = createContext({
 	details: null,
 	deleteItem: () => {},
 	updateItem: () => {},
 	insertItem: () => {},
 });
 
-export const FullFormDetailsContextProvider = ({ children }) => {
+export const CkEditorDetailsContextProvider = ({ children }) => {
 	/**
 	 * store data in state named details
 	 */
@@ -18,7 +18,7 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	 * ===== and set data into details array
 	 */
 	useEffect(() => {
-		axios.get('http://localhost:5000/').then((response) => {
+		axios.get('http://localhost:5000/ckeditor').then((response) => {
 			setDetails(response.data);
 		});
 	}, []);
@@ -26,7 +26,7 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	const deleteItem = (id) => {
 		// ===== delete data in MySql Database
 		axios
-			.post('http://localhost:5000/delete', { deleteId: id })
+			.post('http://localhost:5000/ckeditor/delete', { deleteId: id })
 			.then((response) => {
 				// get index for update details in the UI
 				const detailsIndex = details.findIndex(
@@ -42,7 +42,7 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	const updateItem = (finalData, finalFileData) => {
 		// Update Files in MySql Database
 		axios
-			.put('http://localhost:5000/update/files', finalFileData)
+			.put('http://localhost:5000/ckeditor/update/files', finalFileData)
 			.then(async (response) => {
 				console.log(response);
 				// get index for update details in the UI
@@ -56,7 +56,7 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 
 		// Update data in MySql Database
 		axios
-			.put('http://localhost:5000/update', finalData)
+			.put('http://localhost:5000/ckeditor/update', finalData)
 			.then((response) => {
 				console.log(response);
 			});
@@ -65,24 +65,24 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	};
 
 	const insertItem = () => {
-		axios.get('http://localhost:5000/').then((response) => {
+		axios.get('http://localhost:5000/ckeditor/').then((response) => {
 			setDetails(response.data);
 			alert('Data Inserted');
 		});
 	};
 
 	return (
-		<fullFormDetailsContext.Provider
+		<ckEditorDetailsContext.Provider
 			value={{ details, insertItem, deleteItem, updateItem }}
 		>
 			{children}
-		</fullFormDetailsContext.Provider>
+		</ckEditorDetailsContext.Provider>
 	);
 };
 
-export const useFullFormDetailsContext = () => {
+export const useCkEditorDetailsContext = () => {
 	const { details, deleteItem, updateItem, insertItem } = useContext(
-		fullFormDetailsContext
+		ckEditorDetailsContext
 	);
 
 	return { details, deleteItem, updateItem, insertItem };

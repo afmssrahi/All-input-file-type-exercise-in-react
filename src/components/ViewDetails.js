@@ -34,7 +34,7 @@ const ViewDetails = (props) => {
 		deleteItem(id);
 	};
 
-	// ============== Modal For Update Full Form =======
+	// ============== Modal open/close For Update FullForm =======
 	const [modalShow, setModalShow] = useState(false);
 
 	const handleModalShowForUpdate = () => setModalShow(true);

@@ -26,6 +26,28 @@ main {
   width: 150%;
 }
 
+.min-vh {
+  min-height: 110vh !important;
+}
+
+.position-fixed {
+  z-index: 99 !important;
+}
+
+.custom-btn-ck-editor-show-btn {
+  display: block !important;
+  margin: 10px auto;
+}
+
+
+.ck-editor__editable {
+  min-height: 180px;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-width: 1px !important;
+}
+
 /* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;

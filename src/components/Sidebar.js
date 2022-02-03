@@ -10,6 +10,12 @@ const Sidebar = () => {
 			<p>
 				<Link to='/listOfFormDetails'>List Of Form Details</Link>
 			</p>
+			<p>
+				<Link to='/CKEditor'>CKEditor</Link>
+			</p>
+			<p>
+				<Link to='/CKEditorDetails'>CKEditor Details</Link>
+			</p>
 		</aside>
 	);
 };

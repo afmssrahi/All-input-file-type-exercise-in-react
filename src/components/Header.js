@@ -23,7 +23,7 @@ const Header = () => {
 							id='navbarSupportedContent'
 						>
 							<ul className='navbar-nav ms-auto mb-2 mb-lg-0 text-light'>
-								<li className='nav-item'>log Out</li>
+								<li className='nav-item'>Log Out</li>
 							</ul>
 						</div>
 					</div>
