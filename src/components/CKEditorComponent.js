@@ -86,7 +86,7 @@ const CKEditorComponent = () => {
 							'|',
 							'bold',
 							'italic',
-							'link',
+							// 'link',
 							'bulletedList',
 							'numberedList',
 							'|',

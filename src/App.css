@@ -52,3 +52,8 @@ tbody, td, tfoot, th, thead, tr {
   display: none;
   -webkit-appearance: none;
 } */
+
+
+.ck.ck-balloon-panel {
+  z-index: 10054 !important;
+}

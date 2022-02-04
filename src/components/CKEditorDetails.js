@@ -6,12 +6,14 @@ const CKEditorDetails = () => {
 	const { details } = useCkEditorDetailsContext();
 	return (
 		<div>
-			{details.map((singleDetails) => (
-				<SingleCKEditorDetails
-					key={singleDetails.id}
-					singleDetails={singleDetails}
-				/>
-			))}
+			<div className='row'>
+				{details.map((singleDetails) => (
+					<SingleCKEditorDetails
+						key={singleDetails.id}
+						singleDetails={singleDetails}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };
