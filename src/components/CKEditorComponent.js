@@ -96,7 +96,7 @@ const CKEditorComponent = () => {
 							// 'imageUpload',
 							'blockQuote',
 							'insertTable',
-							'mediaEmbed',
+							// 'mediaEmbed',
 							'undo',
 							'redo',
 						],

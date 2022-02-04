@@ -153,7 +153,7 @@ const SingleCKEditorDetails = (props) => {
 									// 'imageUpload',
 									'blockQuote',
 									'insertTable',
-									'mediaEmbed',
+									// 'mediaEmbed',
 									'undo',
 									'redo',
 								],
