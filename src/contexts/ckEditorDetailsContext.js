@@ -18,7 +18,7 @@ export const CkEditorDetailsContextProvider = ({ children }) => {
 	 * ===== and set data into details array
 	 */
 	useEffect(() => {
-		axios.get('http://localhost:5000/ckeditor').then((response) => {
+		axios.get('https://app.vertexesfze.com/ckeditor').then((response) => {
 			setDetails(response.data);
 		});
 	}, []);
@@ -26,7 +26,9 @@ export const CkEditorDetailsContextProvider = ({ children }) => {
 	const deleteItem = (id) => {
 		// ===== delete data in MySql Database
 		axios
-			.post('http://localhost:5000/ckeditor/delete', { deleteId: id })
+			.post('https://app.vertexesfze.com/ckeditor/delete', {
+				deleteId: id,
+			})
 			.then((response) => {
 				// get index for update details in the UI
 				const detailsIndex = details.findIndex(
@@ -42,9 +44,12 @@ export const CkEditorDetailsContextProvider = ({ children }) => {
 	const updateItem = (finalData, finalFileData) => {
 		// Update Files in MySql Database
 		axios
-			.put('http://localhost:5000/ckeditor/update/files', finalFileData)
+			.put(
+				'https://app.vertexesfze.com/ckeditor/update/files',
+				finalFileData
+			)
 			.then(async (response) => {
-				console.log(response);
+				// console.log(response);
 				// get index for update details in the UI
 				const detailsIndex = await details.findIndex(
 					(post) => post.id.toString() === finalData.id.toString()
@@ -56,16 +61,16 @@ export const CkEditorDetailsContextProvider = ({ children }) => {
 
 		// Update data in MySql Database
 		axios
-			.put('http://localhost:5000/ckeditor/update', finalData)
+			.put('https://app.vertexesfze.com/ckeditor/update', finalData)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 			});
 
 		// setDetails(details);
 	};
 
 	const insertItem = () => {
-		axios.get('http://localhost:5000/ckeditor/').then((response) => {
+		axios.get('https://app.vertexesfze.com/ckeditor/').then((response) => {
 			setDetails(response.data);
 			alert('Data Inserted');
 		});

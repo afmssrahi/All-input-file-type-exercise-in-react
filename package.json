@@ -1,5 +1,6 @@
 {
-  "name": "form",
+  "name": "all-input-file-type-exercise-in-react",
+  "homepage": "https://app.vertexesfze.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts --max-old-space-size=8192 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "serve -l 3006 -s build"

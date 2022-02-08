@@ -49,10 +49,8 @@ const SingleCKEditorDetails = (props) => {
 			...data,
 			ckEditorData: ckEditorDataForModal.toString(),
 			imgName,
-			imgUrl: `http://localhost:5000/${imgName}`,
+			imgUrl: `https://app.vertexesfze.com/${imgName}`,
 		};
-
-		console.log(finalData);
 
 		//  update data
 		updateItem(finalData, formData);

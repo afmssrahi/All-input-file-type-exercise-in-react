@@ -18,7 +18,7 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	 * ===== and set data into details array
 	 */
 	useEffect(() => {
-		axios.get('http://localhost:5000/').then((response) => {
+		axios.get('https://app.vertexesfze.com/').then((response) => {
 			setDetails(response.data);
 		});
 	}, []);
@@ -26,7 +26,7 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	const deleteItem = (id) => {
 		// ===== delete data in MySql Database
 		axios
-			.post('http://localhost:5000/delete', { deleteId: id })
+			.post('https://app.vertexesfze.com/delete', { deleteId: id })
 			.then((response) => {
 				// get index for update details in the UI
 				const detailsIndex = details.findIndex(
@@ -42,9 +42,9 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 	const updateItem = (finalData, finalFileData) => {
 		// Update Files in MySql Database
 		axios
-			.put('http://localhost:5000/update/files', finalFileData)
+			.put('https://app.vertexesfze.com/update/files', finalFileData)
 			.then(async (response) => {
-				console.log(response);
+				// console.log(response);
 				// get index for update details in the UI
 				const detailsIndex = await details.findIndex(
 					(post) => post.id.toString() === finalData.id.toString()
@@ -56,16 +56,16 @@ export const FullFormDetailsContextProvider = ({ children }) => {
 
 		// Update data in MySql Database
 		axios
-			.put('http://localhost:5000/update', finalData)
+			.put('https://app.vertexesfze.com/update', finalData)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 			});
 
 		// setDetails(details);
 	};
 
 	const insertItem = () => {
-		axios.get('http://localhost:5000/').then((response) => {
+		axios.get('https://app.vertexesfze.com/').then((response) => {
 			setDetails(response.data);
 			alert('Data Inserted');
 		});

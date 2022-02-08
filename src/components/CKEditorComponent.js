@@ -34,25 +34,24 @@ const CKEditorComponent = () => {
 			...data,
 			ckEditorData,
 			imgName,
-			imgUrl: `http://localhost:5000/${imgName}`,
+			imgUrl: `https://app.vertexesfze.com/${imgName}`,
 		};
 
 		/**===== insert data into MySql Database */
 
 		// for ckEditor page image insert into server folder
 		axios
-			.post('http://localhost:5000/ckeditor/uploads', formData)
+			.post('https://app.vertexesfze.com/ckeditor/uploads', formData)
 			.then((response) => {
 				// console.log(response.data);
 			});
 
 		// for ckEditor page data add into mysql
 		axios
-			.post('http://localhost:5000/ckeditor', allData)
+			.post('https://app.vertexesfze.com/ckeditor', allData)
 			.then((response) => {
 				// insert data in the UI
 				insertItem();
-				console.log(response.data);
 			});
 	};
 

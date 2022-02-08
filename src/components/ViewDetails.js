@@ -63,8 +63,8 @@ const ViewDetails = (props) => {
 			...data,
 			imgName,
 			fileName,
-			imgUrl: `http://localhost:5000/${imgName}`,
-			fileUrl: `http://localhost:5000/${fileName}`,
+			imgUrl: `https://app.vertexesfze.com/${imgName}`,
+			fileUrl: `https://app.vertexesfze.com/${fileName}`,
 		};
 
 		//  update data

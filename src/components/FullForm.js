@@ -28,19 +28,19 @@ const FullForm = () => {
 
 		// for image and files insert into server folder
 		axios
-			.post('http://localhost:5000/uploads', formData)
+			.post('https://app.vertexesfze.com/uploads', formData)
 			.then((response) => {
 				// console.log(response.data);
 			});
 
 		// for data add into mysql
 		axios
-			.post('http://localhost:5000/', {
+			.post('https://app.vertexesfze.com/', {
 				...data,
 				imgName,
 				fileName,
-				imgUrl: `http://localhost:5000/${imgName}`,
-				fileUrl: `http://localhost:5000/${fileName}`,
+				imgUrl: `https://app.vertexesfze.com/${imgName}`,
+				fileUrl: `https://app.vertexesfze.com/${fileName}`,
 			})
 			.then((response) => {
 				// insert data in the UI
